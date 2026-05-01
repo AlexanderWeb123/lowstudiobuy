@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>low studio | креативная мастерская</title>
+    <link rel="icon" type="image/jpeg" href="./fav.jpg" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="header__logo">
+          <img src="./fav.jpg" alt="logo" class="logo__img" />
+          <div class="logo__text">
+            <span class="logo__name">low studio</span>
+            <span class="logo__tagline">лёгкие решения</span>
+          </div>
+        </div>
+        <div class="header__controls">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="темная тема"
+          >
+            🌙
+          </button>
+          <div class="header__badge">∘ магия до 200₽ ∘</div>
+        </div>
+      </header>
+
+      <div class="timer-section" id="timerSection">
+        <div class="timer__content">
+          <span class="timer__icon">⏰✨</span>
+          <span class="timer__text">🔥 СУПЕР-СКИДКА 20% ТОЛЬКО СЕГОДНЯ!</span>
+          <span class="timer__clock" id="timerClock">--:--:--</span>
+          <span class="timer__hint">не упусти момент</span>
+        </div>
+      </div>
+
+      <section class="about">
+        <div class="about__inner">
+          <h2 class="about__title">о нас шёпотом</h2>
+          <p class="about__text">
+            Мы — Low Studio. Создаём цифровую магию за смешные деньги. Сайты,
+            музыка, логотипы, реклама, визуализация. Без пафоса, без переплат.
+            Просто берём и делаем круто. А пока вы думаете — скидка тает... ⏳
+          </p>
+          <div class="about__features">
+            <div class="feature">
+              <span class="feature__icon">⚡</span><span>молниеносно</span>
+            </div>
+            <div class="feature">
+              <span class="feature__icon">🎯</span><span>в яблочко</span>
+            </div>
+            <div class="feature">
+              <span class="feature__icon">💎</span><span>бриллиантово</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cart-bar" id="cartBar">
+        <span class="cart-bar__icon">🛒</span>
+        <span class="cart-bar__count" id="cartCount">0</span>
+        <span class="cart-bar__total" id="cartTotal">0 ₽</span>
+        <button class="cart-bar__btn" id="viewCartBtn">
+          открыть корзину ✨
+        </button>
+      </div>
+
+      <section class="services-section">
+        <h2 class="section-title">наши услуги</h2>
+        <div class="grid" id="cardsContainer"></div>
+      </section>
+
+      <section class="portfolio-section">
+        <h2 class="section-title">портфолио (ждём тебя)</h2>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer__contact">
+          <span class="footer__label">✉️ SMS</span>
+          <a href="sms:+79165681929" class="footer__phone" id="smsLink"
+            >+7 916 568-19-29</a
+          >
+          <span class="footer__info">отправь сообщение — мы рядом</span>
+        </div>
+        <div class="footer__buttons">
+          <button class="footer__action-btn" id="copyOrderBtn">
+            📋 скопировать заказ
+          </button>
+          <button class="footer__action-btn" id="downloadOrderBtn">
+            📄 скачать заказ .txt
+          </button>
+        </div>
+        <div class="footer__links">
+          <button class="footer__policy-btn" id="policyBtn">
+            политика конфиденциальности
+          </button>
+          <button class="footer__policy-btn" id="clearCartBtn">
+            очистить корзину
+          </button>
+        </div>
+        <div class="footer__credit">
+          © low studio — цены искрятся, скидка мерцает ❤️
+        </div>
+      </footer>
+    </div>
+
+    <button class="scroll-top" id="scrollTopBtn" aria-label="наверх">↑</button>
+
+    <div class="modal glass-modal" id="cartModal">
+      <div class="modal__content">
+        <div class="modal__header">
+          <span class="modal__icon">🛒</span>
+          <h3 class="modal__title">твоя корзина</h3>
+          <button class="modal__close" id="cartModalClose">&times;</button>
+        </div>
+        <div class="modal__body" id="cartModalBody">
+          <div class="cart-empty">корзина пуста, но это легко исправить ✨</div>
+        </div>
+        <div class="cart-modal__footer">
+          <div class="cart-total">
+            итого: <span id="cartModalTotal">0</span> ₽
+          </div>
+          <button class="cart-sms-btn" id="cartSmsBtn">
+            📱 отправить заказ по SMS
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal glass-modal" id="policyModal">
+      <div class="modal__content">
+        <div class="modal__header">
+          <span class="modal__icon">🔒</span>
+          <h3 class="modal__title">политика конфиденциальности</h3>
+          <button class="modal__close" id="policyModalClose">&times;</button>
+        </div>
+        <div class="modal__body policy__body">
+          <div class="policy__text">
+            <p>
+              Low Studio бережёт твои данные как зеницу ока. Вся информация
+              живёт только у тебя в телефоне и localStorage.
+            </p>
+            <h4>📌 честно и прозрачно</h4>
+            <p>
+              Мы не храним ничего на серверах. Твои заказы, избранное, тема —
+              только локально.
+            </p>
+            <h4>📞 связь</h4>
+            <p>
+              Единственный способ связаться — SMS на номер
+              <strong>+7 916 568-19-29</strong>. Никаких спам-рассылок.
+            </p>
+            <p class="policy__date">действует всегда, особенно сегодня ✨</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
